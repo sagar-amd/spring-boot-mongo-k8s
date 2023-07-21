@@ -8,6 +8,6 @@ node {
         sh "${mavenCMD} clean package"
     }
     stage ("Build docker image") {
-        sh "docker build -t sagaramd/springmongo-ks"
+        sh "docker build -t sagaramd/springmongo-ks ."
     }
 }
