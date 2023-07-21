@@ -14,6 +14,6 @@ node {
         withCredentials([string(credentialsId: 'docker_hub', variable: 'docker_hub')]) {
           sh "docker login -u sagaramd -p ${docker_hub}"
         }
-        sh "docker push sagaramd/springmongo "
+        sh "docker push sagaramd/springmongo-ks "
     }
 }
