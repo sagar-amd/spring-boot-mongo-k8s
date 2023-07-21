@@ -5,6 +5,6 @@ node {
     stage (" Maven Build  ") {
         def mavenHome = tool name: "maven-3.9", type: "maven"
         def mavenCMD = "${mavenHome}/bin/mvn "
-        sh '${mavenCMD} clean package'
+        sh "${mavenCMD} clean package"
     }
 }
