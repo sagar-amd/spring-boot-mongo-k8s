@@ -10,4 +10,10 @@ node {
     stage ("Build docker image") {
         sh "docker build -t sagaramd/springmongo-ks ."
     }
+    stage ("Push image to Docker Hub") {
+        withCredentils([string(credentialsId: 'docker_hub', variables: 'docker_hub')]) {
+            sh "docker login -u sagaramd -p ${docker_hub}"
+        }
+            sh "docker push sagaramd/springmongo-ks"
+    }
 }
