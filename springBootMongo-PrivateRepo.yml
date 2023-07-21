@@ -15,7 +15,7 @@ spec:
       imagePullSecrets:
       - name: dockerreposecret
       containers:
-      - image: sagaramd/springmongo
+      - image: sagaramd/springmongo-ks
         name: springboot
         ports:
         - name: springboot
