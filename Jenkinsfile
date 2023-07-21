@@ -16,4 +16,7 @@ node {
         }
         sh "docker push sagaramd/springmongo-ks "
     }
+    stage ("Deploy application in K8s Cluster") {
+        sh "kubectl apply -f springBootMongo.yml"
+    }
 }
