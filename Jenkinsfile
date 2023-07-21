@@ -7,4 +7,7 @@ node {
         def mavenCMD = "${mavenHome}/bin/mvn "
         sh "${mavenCMD} clean package"
     }
+    stage ("Build docker image") {
+        sh "docker build -t sagaramd/springmongo-ks"
+    }
 }
