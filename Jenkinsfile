@@ -2,7 +2,7 @@ node {
     stage ("Git Clone") {
         git 'https://github.com/sagar-amd/spring-boot-mongo-k8s.git'
     }
-    stage ("Code anaysis"){
+    stage ("Code anaysis") {
         def sonarHome = tool 'sonarqube' ;
         withSonarQubeEnv('sonarqube') {
             sh "$(sonarHome)/bin/sonar-scanner \
