@@ -2,17 +2,17 @@ node {
     stage ("Git Clone") {
         git 'https://github.com/sagar-amd/spring-boot-mongo-k8s.git'
     }
-    stage ("Code anaysis") {
+    stage ("Code Anaysis") {
         def sonarHome = tool 'sonarqube' ;
         withSonarQubeEnv('sonarqube') {
-            sh "$(sonarHome)/bin/sonar-scanner \
-            -D sonar.login=sagar \
-            -D sonar.password=sagar123 \
-            -D sonar.projectkey=sonarqubetest \
-            -D sonar.executions=vendor/**,**/*.java \
-            -D sonar.host.url=http://10.0.0.100:9000"
+            sh "${sonarHome}/bin/sonar-scanner \
+             -Dsonar.projectKey=sonar-app \
+             -Dsonar.executions=vendor/**,**/*.* \
+             -Dsonar.host.url=http://10.0.0.100:9000 \
+             -Dsonar.login=sqp_03b14adef933a99383f2df8a25b2da1a665cdd28 \
+             -Dsonar.java.binaries=**/**/**"
         }
-    }
+    }    
     stage (" Maven Build  ") {
         def mavenHome = tool name: "maven-3.9", type: "maven"
         def mavenCMD = "${mavenHome}/bin/mvn "
